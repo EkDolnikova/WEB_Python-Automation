@@ -1,0 +1,7 @@
+address:  'https://test-stand.gb.ru/gateway/login'
+address2: 'https://test-stand.gb.ru/api/posts'
+username: 'Sidorova95'
+password: '835a0fde40'
+title: 'Cat'
+description: 'Выполнена'
+content: 'Проверено'
