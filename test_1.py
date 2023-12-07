@@ -9,7 +9,7 @@ with open('testdata.yaml') as f:
 # site = Site(testdata['address'])
 
 
-# копируем пути поле логина и пароля, вводим невалидные данные
+
 def test_step1(site, login_xpath, pswd_xpath, btn_xpath, result_xpath):
     input1 = site.find_element('xpath', login_xpath)
     input1.send_keys('test')
