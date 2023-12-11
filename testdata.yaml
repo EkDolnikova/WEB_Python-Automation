@@ -3,5 +3,5 @@ browser: chrome
 sleep_time: 1
 login: "Sidorova95"
 password: "835a0fde40"
-
+test_email: 'user@user.ru'
 

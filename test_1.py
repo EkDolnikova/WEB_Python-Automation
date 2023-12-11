@@ -1,61 +1,55 @@
 import yaml
+from TestPage import OperationsHelper
 import time
 import random, string
+import logging
 
 with open('testdata.yaml') as f:
     testdata = yaml.safe_load(f)
 
 
-# site = Site(testdata['address'])
+# def test_step1(browser):
+#     logging.info('Test1 starting')
+#     testpage = OperationsHelper(browser, testdata['address'])
+#     testpage.go_to_site()
+#     testpage.enter_login('test')
+#     testpage.enter_pswd('test')
+#     testpage.click_login_button()
+#     assert testpage.get_error_text() == '401'
+#
+#
+#
+def test_step2(browser):
+    logging.info('Test 2 start')
+    testpage = OperationsHelper(browser, testdata['address'])
+    testpage.go_to_site()
+    testpage.enter_login(testdata['login'])
+    testpage.enter_pswd(testdata['password'])
+    testpage.click_login_button()
+    assert testpage.get_login_text() == 'Blog'
 
 
+# def test_step3(browser):
+#     logging.info('Test 3 start')
+#     testpage = OperationsHelper(browser, testdata['address'])
+#     testpage.go_to_site()
+#     testpage.click_new_post_button()
+#     testpage.enter_title_post('Selenium')
+#     testpage.enter_description_post('12345')
+#     testpage.enter_content_post("".join(random.choices(string.ascii_lowercase + string.digits, k=300)))
+#     testpage.click_save_new_post_button()
+#     time.sleep(testdata['sleep_time'])
+#     assert testpage.check_exist_post() == 'Selenium'
 
-def test_step1(site, login_xpath, pswd_xpath, btn_xpath, result_xpath):
-    input1 = site.find_element('xpath', login_xpath)
-    input1.send_keys('test')
-    input2 = site.find_element('xpath', pswd_xpath)
-    input2.send_keys('test')
-    btn = site.find_element('xpath', btn_xpath)
-    btn.click()
-    err_label = site.find_element('xpath', result_xpath)
-    assert err_label.text == '401'
-
-
-
-def test_step2(site, login_xpath, pswd_xpath, btn_xpath, result_success):
-    input1 = site.find_element('xpath', login_xpath)
-    input1.send_keys(testdata['login'])
-    input2 = site.find_element('xpath', pswd_xpath)
-    input2.send_keys(testdata['password'])
-    btn = site.find_element('xpath', btn_xpath)
-    btn.click()
-    login = site.find_element('xpath', result_success)
-    assert login.text == 'Blog'
-
-
-# ДЗ№2
-def test_step3(site, login_xpath, pswd_xpath, btn_xpath, btn_create_post,
-               btn_save_post, tittle_post_xpath, description_post_xpath,
-               content_post_xpath, tittle_save_post):
-    input1 = site.find_element('xpath', login_xpath)
-    input1.send_keys(testdata['login'])
-    input2 = site.find_element('xpath', pswd_xpath)
-    input2.send_keys(testdata['password'])
-    btn = site.find_element('xpath', btn_xpath)
-    btn.click()
+# #Домашнее №3 (всплывающее окно CONTACT US)
+def test_step4(browser):
+    logging.info('Test 4 start')
+    testpage = OperationsHelper(browser, testdata['address'])
+    testpage.go_to_site()
+    testpage.click_contactus_button()
+    testpage.enter_name_field("".join(random.choices(string.ascii_uppercase + string.digits, k=10)))
+    testpage.enter_email_field(testdata['test_email'])
+    testpage.enter_content_field("".join(random.choices(string.ascii_lowercase + string.digits, k=200)))
+    testpage.click_contactus_send_button()
     time.sleep(testdata['sleep_time'])
-    btn_create = site.find_element('xpath', btn_create_post)
-    btn_create.click()
-    time.sleep(testdata['sleep_time'])
-    input1 = site.find_element('xpath', tittle_post_xpath)
-    input1.send_keys('Selenium')
-    input2 = site.find_element('xpath', description_post_xpath)
-    input2.send_keys('12345')
-    input2 = site.find_element('xpath', content_post_xpath)
-    input2.send_keys("".join(random.choices(string.ascii_lowercase + string.digits, k=300)))
-    btn_post = site.find_element('xpath', btn_save_post)
-    btn_post.click()
-    time.sleep(testdata['sleep_time'])
-    result = site.find_element('xpath', tittle_save_post)
-    assert result.text == 'Selenium'
-
+    assert testpage.text_alert() == 'Form successfully submitted'
