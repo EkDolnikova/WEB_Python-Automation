@@ -1,16 +1,10 @@
-2023-12-11 12:50:56 INFO ====== WebDriver manager ======
-2023-12-11 12:50:57 INFO Get LATEST chromedriver version for google-chrome
-2023-12-11 12:50:57 INFO Get LATEST chromedriver version for google-chrome
-2023-12-11 12:50:58 INFO Driver [C:\Users\ASUS\.wdm\drivers\chromedriver\win64\119.0.6045.105\chromedriver-win32/chromedriver.exe] found in cache
-2023-12-11 12:50:59 INFO Test 2 start
-2023-12-11 12:50:59 INFO send Sidorova95 to element //*[@id="login"]/div[1]/label/input
-2023-12-11 12:50:59 INFO send 835a0fde40 to element //*[@id="login"]/div[2]/label/input
-2023-12-11 12:50:59 INFO Click logging button
-2023-12-11 12:51:00 INFO We find text Blog in login page //*[@id="app"]/main/div/div/div[2]/h2
-2023-12-11 12:51:00 INFO Test 4 start
-2023-12-11 12:51:01 INFO Click Contact button
-2023-12-11 12:51:01 INFO Send 2BAIJN0J3F to element //*[@id="contact"]/div[1]/label/input
-2023-12-11 12:51:01 INFO Send user@user.ru to element //*[@id="contact"]/div[2]/label/input
-2023-12-11 12:51:02 INFO Send kmlzb0jhkty2vcajhl9cyouu2gv9usbqp3z97yqywkac2zaauu25s3kj5kjw4rr8rmezs9iwthpy3mj3yyis7h7rwc1pupqeznksl8h3dgh0y2fknbuxzd86dd7dupwtvbrwhtn2wa34mqs6u50okehw8taavxlho8pkbzwfanbxnqm68p23xk54r864p7ymozh1sifl to element //*[@id="contact"]/div[3]/label/span/textarea
-2023-12-11 12:51:02 INFO Click Send button
-2023-12-11 12:51:03 INFO Switch alert
+2023-12-17 10:26:48 INFO ====== WebDriver manager ======
+2023-12-17 10:26:49 INFO Get LATEST chromedriver version for google-chrome
+2023-12-17 10:26:50 INFO Get LATEST chromedriver version for google-chrome
+2023-12-17 10:26:50 INFO Driver [C:\Users\ASUS\.wdm\drivers\chromedriver\win64\120.0.6099.71\chromedriver-win32/chromedriver.exe] found in cache
+2023-12-17 10:26:52 INFO Test 1 start
+2023-12-17 10:26:53 INFO Test 2 start
+2023-12-17 10:26:55 INFO Test 3 start
+2023-12-17 10:26:57 INFO Test 4 start
+2023-12-17 10:26:59 INFO Get alert text
+2023-12-17 10:26:59 INFO Form successfully submitted

@@ -8,17 +8,17 @@ with open('testdata.yaml') as f:
     testdata = yaml.safe_load(f)
 
 
-# def test_step1(browser):
-#     logging.info('Test1 starting')
-#     testpage = OperationsHelper(browser, testdata['address'])
-#     testpage.go_to_site()
-#     testpage.enter_login('test')
-#     testpage.enter_pswd('test')
-#     testpage.click_login_button()
-#     assert testpage.get_error_text() == '401'
-#
-#
-#
+def test_step1(browser):
+    logging.info('Test 1 start')
+    testpage = OperationsHelper(browser, testdata['address'])
+    testpage.go_to_site()
+    testpage.enter_login('test')
+    testpage.enter_pswd('test')
+    testpage.click_login_button()
+    assert testpage.get_error_text() == '401'
+
+
+
 def test_step2(browser):
     logging.info('Test 2 start')
     testpage = OperationsHelper(browser, testdata['address'])
@@ -29,23 +29,21 @@ def test_step2(browser):
     assert testpage.get_login_text() == 'Blog'
 
 
-# def test_step3(browser):
-#     logging.info('Test 3 start')
-#     testpage = OperationsHelper(browser, testdata['address'])
-#     testpage.go_to_site()
-#     testpage.click_new_post_button()
-#     testpage.enter_title_post('Selenium')
-#     testpage.enter_description_post('12345')
-#     testpage.enter_content_post("".join(random.choices(string.ascii_lowercase + string.digits, k=300)))
-#     testpage.click_save_new_post_button()
-#     time.sleep(testdata['sleep_time'])
-#     assert testpage.check_exist_post() == 'Selenium'
+def test_step3(browser):
+    logging.info('Test 3 start')
+    testpage = OperationsHelper(browser, testdata['address'])
+    testpage.click_new_post_button()
+    testpage.enter_title_post('Selenium')
+    testpage.enter_description_post('12345')
+    testpage.enter_content_post("".join(random.choices(string.ascii_lowercase + string.digits, k=300)))
+    testpage.click_save_new_post_button()
+    time.sleep(testdata['sleep_time'])
+    assert testpage.check_exist_post() == 'Selenium'
 
 # #Домашнее №3 (всплывающее окно CONTACT US)
 def test_step4(browser):
     logging.info('Test 4 start')
     testpage = OperationsHelper(browser, testdata['address'])
-    testpage.go_to_site()
     testpage.click_contactus_button()
     testpage.enter_name_field("".join(random.choices(string.ascii_uppercase + string.digits, k=10)))
     testpage.enter_email_field(testdata['test_email'])

@@ -4,6 +4,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
+from email_report import sendemail
+import requests
 
 
 with open('testdata.yaml') as f:
@@ -25,71 +27,28 @@ def browser():
     driver.maximize_window()
     yield driver
     driver.quit()
+    sendemail()
 
 
+# browser = testdata['browser']
+# name = testdata['login']
+# passwd = testdata['password']
+
+
+# API
+
 # @pytest.fixture()
-# def login_xpath():
-#     return '//*[@id="login"]/div[1]/label/input'
-#
-#
-# @pytest.fixture()
-# def pswd_xpath():
-#     return '//*[@id="login"]/div[2]/label/input'
-#
-#
-# @pytest.fixture()
-# def btn_xpath():
-#     return '//*[@id="login"]/div[3]/button'
+# def login():
+#     r = requests.post('https://test-stand.gb.ru/gateway/login', data={'username': name, 'password': passwd})
+#     return r.json()['token']
 #
 #
 # @pytest.fixture()
-# def result_xpath():
-#     return '//*[@id="app"]/main/div/div/div[2]/h2'
+# def not_my_post():
+#     return ' '
 #
 #
 # @pytest.fixture()
-# def result_success():
-#     return '//*[@id="app"]/main/div/div[1]/h1'
-#
-#
-# # ДЗ№2
-# @pytest.fixture()
-# def btn_create_post():
-#     return '//*[@id="create-btn"]'
-#
-#
-# # ДЗ№2
-# @pytest.fixture()
-# def tittle_post_xpath():
-#     return '//*[@id="create-item"]/div/div/div[1]/div/label/input'
-#
-#
-# # ДЗ№2
-# @pytest.fixture()
-# def description_post_xpath():
-#     return '//*[@id="create-item"]/div/div/div[2]/div/label/span/textarea'
-#
-#
-# # ДЗ№2
-# @pytest.fixture()
-# def content_post_xpath():
-#     return '//*[@id="create-item"]/div/div/div[3]/div/label/span/textarea'
-#
-#
-# # ДЗ№2
-# @pytest.fixture()
-# def btn_save_post():
-#     return '//*[@id="create-item"]/div/div/div[7]/div/button/span'
-#
-#
-# # ДЗ№2
-# @pytest.fixture()
-# def tittle_save_post():
-#     return '//*[@id="app"]/main/div/div[1]/h1'
-#
-#
-# @pytest.fixture()
-# def site():
-#     my_site = Site(testdata['address'])
-#     yield my_site
-#     my_site.close()
+# def my_post():
+#     return ' '
+
